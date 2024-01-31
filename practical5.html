@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<body>
+    <center>
+        <div ng-app="app3" ng-controller="myCtrl">
+            <table border="1">
+                <tr>
+                    <th ng-click="orderByMe('name')">Name</th>
+                    <!-- Update the ng-click to pass the correct parameter -->
+
+
+                    <th>Mobile no</th>
+                    <th>Email</th>
+                    <th>Address</th>
+
+                </tr>
+                <tr ng-repeat="x in customers  | orderBy: orderBy">
+
+
+                    <td>{{x.name}}</td>
+                    <td>{{x.mobileno}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.address}}</td>
+
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var app = angular.module('app3', []);
+            app.controller('myCtrl', function ($scope, $http) {
+
+                $http.get('http://localhost:3000/reg').then(function (response) {
+                    $scope.customers = response.data;
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+
+                
+<th ng-click="orderByMe('name')">Name</th>
+
+            })
+
+        </script>
+    </center>
+</body>
+
+</html>
