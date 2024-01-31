@@ -7,9 +7,9 @@
         <div ng-app="app3" ng-controller="myCtrl">
             <table border="1">
                 <tr>
-                    <th ng-click="orderByMe('name')">Name</th>
-                    <!-- Update the ng-click to pass the correct parameter -->
 
+                    <!-- Corrected placement of ng-click inside the controller block -->
+                    <th ng-click="orderByMe('name')">Name</th>
 
                     <th>Mobile no</th>
                     <th>Email</th>
@@ -38,10 +38,10 @@
                     console.log(error);
                 });
 
-
-                
-<th ng-click="orderByMe('name')">Name</th>
-
+                // Corrected placement of ng-click inside the controller block
+                $scope.orderByMe = function (x) {
+                    $scope.orderBy = x;
+                };
             })
 
         </script>
